@@ -1,1 +1,25 @@
-<p>layouts works!</p>
+<mat-grid-list cols="3" rowHeight="100vh" gutterSize="0px" class="layout-grid">
+    <!-- Header Area -->
+    <mat-grid-tile colspan="3" rowspan="1" class="header">
+      <TaskManagement-header></TaskManagement-header>
+    </mat-grid-tile>
+  
+    <!-- Sidenav Area -->
+    <mat-grid-tile colspan="1" rowspan="2" class="sidenav">
+      <TaskManagement-side-navbar></TaskManagement-side-navbar>
+    </mat-grid-tile>
+  
+    <!-- Main Content Area -->
+    <mat-grid-tile colspan="2" rowspan="1" class="main-content">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-grid-tile>
+  
+    <!-- Footer Area -->
+    <mat-grid-tile colspan="3" rowspan="1" class="footer">
+      <TaskManagement-footer></TaskManagement-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+ 

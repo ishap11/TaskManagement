@@ -1,0 +1,27 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    @if (!isCollapsed) {
+    }
+    <button (click)="toggleSidebar()">
+      @if (isCollapsed) {
+        &raquo;
+      } @else {
+        &laquo;
+      }
+    </button>
+  </div>
+  <nav>
+    <ul>
+      @for (item of navItems; track item.label) {
+        <li>
+          <a [href]="item.link">
+            <i [class]="item.icon"></i>
+            @if (!isCollapsed) {
+              <span>{{ item.label }}</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</div>

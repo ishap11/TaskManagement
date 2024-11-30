@@ -10,6 +10,17 @@ import {MatListModule} from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { BlankLayoutComponent } from '../blank-layout/blank-layout.component';
+//import { Option1Component } from './option1/option1.component';
+// import { Option2Component } from './option2/option2.component';
+
+// const routes: Routes = [
+//   { path: 'option1', component: Option1Component },
+//   { path: 'option2', component: Option2Component },
+// ];
 @NgModule({
   declarations: [
     FooterComponent,
@@ -24,11 +35,17 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     RouterModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatGridListModule
   ],
   exports: [
-    HeaderComponent,
-    SideNavbarComponent
+    // FooterComponent,
+    // HeaderComponent,
+    // SideNavbarComponent,
+    LayoutsComponent,
+    RouterModule
   ]
 })
 export class LayoutModule { }
