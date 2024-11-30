@@ -14,6 +14,17 @@ const Dashboardroutes:Routes=[{
     path:'', component:CardComponent
   }]
 }]
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { HelperModule } from '../../helper/helper.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +34,21 @@ const Dashboardroutes:Routes=[{
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(Dashboardroutes),
+    RouterModule.forChild(Dashboardroutes),MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+
     // BlankLayoutComponent
   ],
-  exports:[CardComponent],
+  exports : [
+    CardComponent,
+    RecentTaskGridComponent
+  ]
 })
 export class DashboardModule { }
