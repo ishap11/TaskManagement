@@ -13,7 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { BlankLayoutComponent } from '../blank-layout/blank-layout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //import { Option1Component } from './option1/option1.component';
 // import { Option2Component } from './option2/option2.component';
 
@@ -38,14 +38,12 @@ import { BlankLayoutComponent } from '../blank-layout/blank-layout.component';
     MatIconModule,
     MatMenuModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    FontAwesomeModule
   ],
   exports: [
-    // FooterComponent,
-    // HeaderComponent,
-    // SideNavbarComponent,
     LayoutsComponent,
-    RouterModule
-  ]
+    
+  ],
 })
 export class LayoutModule { }

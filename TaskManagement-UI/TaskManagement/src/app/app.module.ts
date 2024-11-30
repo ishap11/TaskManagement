@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +30,14 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     MatListModule,
     MatIconModule,
     MatExpansionModule,
-    DashboardModule
+    DashboardModule,
+    
   ],
-  
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     provideAnimationsAsync()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[BlankLayoutComponent]
 })
 export class AppModule { }

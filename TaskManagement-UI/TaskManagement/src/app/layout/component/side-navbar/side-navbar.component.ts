@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'TaskManagement-side-navbar',
   templateUrl: './side-navbar.component.html',
@@ -11,9 +12,9 @@ export class SideNavbarComponent {
   showFiller = false;
   isCollapsed = false;
   navItems = [
-    { label: 'Dashboard', icon: 'fas fa-tachometer-alt', link: '/dashboard' },
-    { label: 'Users', icon: 'fas fa-users', link: '/users' },
-    { label: 'Settings', icon: 'fas fa-cog', link: '/settings' }
+    { label: 'Dashboard', link: '/', icon: 'fas fa-home' },
+    { label: 'Users', link: '/users', icon: 'fas fa-users' },
+    { label: 'Settings', link: '/settings', icon: 'fas fa-cog' },
   ];
 
   toggleSidebar() {
