@@ -1,1 +1,11 @@
-<p>card works!</p>
+<div class="card-container">
+    <mat-card *ngFor="let item of cardItems" class="example-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ item.title }}</mat-card-title>
+          <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  
