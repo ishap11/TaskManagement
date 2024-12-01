@@ -9,98 +9,35 @@
   </div>
 
   <div>
-    <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-      <mat-button-toggle value="all-projects">All Projects</mat-button-toggle>
+    <mat-button-toggle-group
+      appearance="legacy"
+      name="fontStyle"
+      aria-label="Font Style"
+      (change)="filterProjects($event.value)"
+    >
+      <mat-button-toggle value="all">All Projects</mat-button-toggle>
       <mat-button-toggle value="active">Active</mat-button-toggle>
       <mat-button-toggle value="completed">Completed</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
+
   <div class="project-grid">
-    <mat-card class="project-card">
+    <mat-card class="project-card" *ngFor="let project of filteredProjects">
       <div class="project-header">
-        <h3>Project 1</h3>
+        <h3>{{ project.name }}</h3>
         <button mat-icon-button>
           <mat-icon>more_vert</mat-icon>
         </button>
       </div>
-      <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="project.progress"></mat-progress-bar>
       <div class="project-stats">
         <div class="stat-item">
           <mat-icon>description</mat-icon>
-          <span>24 tasks</span>
+          <span>{{ project.tasks }} tasks</span>
         </div>
         <div class="stat-item">
           <mat-icon>group</mat-icon>
-          <span>5 members</span>
-        </div>
-      </div>
-      <div class="project-actions">
-        <button mat-raised-button color="primary">View Details</button>
-      </div>
-    </mat-card>
-
-    <mat-card class="project-card">
-      <div class="project-header">
-        <h3>Project 2</h3>
-        <button mat-icon-button>
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </div>
-      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-      <div class="project-stats">
-        <div class="stat-item">
-          <mat-icon>description</mat-icon>
-          <span>12 tasks</span>
-        </div>
-        <div class="stat-item">
-          <mat-icon>group</mat-icon>
-          <span>3 members</span>
-        </div>
-      </div>
-      <div class="project-actions">
-        <button mat-raised-button color="primary">View Details</button>
-      </div>
-    </mat-card>
-
-    <mat-card class="project-card">
-      <div class="project-header">
-        <h3>Project 3</h3>
-        <button mat-icon-button>
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </div>
-      <mat-progress-bar mode="determinate" value="90"></mat-progress-bar>
-      <div class="project-stats">
-        <div class="stat-item">
-          <mat-icon>description</mat-icon>
-          <span>30 tasks</span>
-        </div>
-        <div class="stat-item">
-          <mat-icon>group</mat-icon>
-          <span>8 members</span>
-        </div>
-      </div>
-      <div class="project-actions">
-        <button mat-raised-button color="primary">View Details</button>
-      </div>
-    </mat-card>
-
-    <mat-card class="project-card">
-      <div class="project-header">
-        <h3>Project 4</h3>
-        <button mat-icon-button>
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </div>
-      <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
-      <div class="project-stats">
-        <div class="stat-item">
-          <mat-icon>description</mat-icon>
-          <span>37 tasks</span>
-        </div>
-        <div class="stat-item">
-          <mat-icon>group</mat-icon>
-          <span>10 members</span>
+          <span>{{ project.members }} members</span>
         </div>
       </div>
       <div class="project-actions">
