@@ -1,16 +1,82 @@
 .card-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
-    justify-content: center;
-    gap: 10px; 
-    padding: 16px;
-    height: 25vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid layout */
+  gap: 16px; /* Space between cards */
+  padding-top: 16px; /* Padding around the container */
+  width: 100%; /* Full width */
+  // max-width: 1200px; /* Limit max width for readability */
+  // margin: 0 auto; /* Center align container */
+}
+
+.content h2 {
+  margin-left: 0; /* Reset margin */
+  text-align: left; /* Ensure text aligns to the left */
+}
+
+.contents {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure content spans full width */
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content at the top */
+  align-items: flex-start; /* Align content to the left */
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+  text-align: left; /* Align text to the left */
+  background-color: #fff; /* White background */
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
   }
-  
-  .example-card {
-    margin: 8px 0; 
-    width: 20%; 
-    height: 50%;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+mat-card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333; /* Darker text */
+}
+
+.task-icon {
+  font-size: 1.5rem;
+  color: #666; /* Subtle icon color */
+  padding-right: 1rem;
+}
+
+mat-card-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0078d4; /* Accent color for numbers */
+  margin: 0; /* Remove margin */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+    gap: 12px; /* Adjust spacing */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    grid-template-columns: 1fr; /* Single column layout on small screens */
+  }
+
+  .task-card {
+    padding: 12px; /* Reduce padding for smaller screens */
+  }
+}

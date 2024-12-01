@@ -1,53 +1,56 @@
-<div class="content-box">
-    <div class="card-container">
-        <mat-card-header class="mat-card-header">
-            <mat-card-title>Recent Tasks</mat-card-title>
-            <mat-card-subtitle>Here's your task review</mat-card-subtitle>
-        </mat-card-header>
-
-        <!-- Search, Filter, and Add Task on one line -->
-        <div class="search-actions">
-            <input type="text" placeholder="Search tasks..." />
-            <button class="primary" type="button">Search</button>
-            <mat-card>
-                <mat-card-content>Filter task</mat-card-content>
-                <button><i class="fa-solid fa-filter"></i></button>
-            </mat-card>
-            <mat-card>
-                <mat-card-content>Filter</mat-card-content>
-                <button><i class="fa-solid fa-filter"></i></button>
-            </mat-card>
-            <mat-card>
-                <mat-card-content>Add Task</mat-card-content>
-                <button><i class="fa-solid fa-plus"></i></button>
-            </mat-card>
-        </div>
-
-        <div class = "example-c1">
-            <mat-card class="example-card1">
-                <mat-card-header>
-                    <mat-card-title>Implement User Authentication</mat-card-title>
-                    <mat-card-subtitle>Due: May 15, 2025</mat-card-subtitle>
-                </mat-card-header>
-                <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
-            </mat-card>
-        </div>
-        
-
-        <mat-card class="example-card1">
-            <mat-card-header>
-                <mat-card-title>Design Landing Page</mat-card-title>
-                <mat-card-subtitle>Due: May 15, 2025</mat-card-subtitle>
-            </mat-card-header>
-            <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-        </mat-card>
-
-        <mat-card class="example-card1">
-            <mat-card-header>
-                <mat-card-title>Set up CI/CD Pipeline</mat-card-title>
-                <mat-card-subtitle>Due: May 15, 2025</mat-card-subtitle>
-            </mat-card-header>
-            <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
-        </mat-card>
+<div class="task-controls">
+    <!-- Search Input -->
+    <input 
+      type="text" 
+      placeholder="Search tasks..." 
+      [(ngModel)]="searchText" 
+      class="search-input" 
+    />
+  
+    <!-- Filter Dropdown -->
+    <select [(ngModel)]="filterStatus" class="filter-dropdown">
+      <option value="">Filter by status</option>
+      <option value="not-started">Not Started</option>
+      <option value="in-progress">In Progress</option>
+      <option value="completed">Completed</option>
+    </select>
+  
+    <!-- Add Task Button -->
+    <button class="add-task-button" (click)="openTaskPopup()"> + Task</button>
+  </div>
+  
+  <div class="task-list">
+    <div *ngFor="let task of filteredTasks()" class="task-item">
+      <h4>{{ task.name }}</h4>
+      <p>Due: {{ task.dueDate }}</p>
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="task.progress"></div>
+      </div>
     </div>
-</div>
+  </div>
+  
+  <!-- Add Task Popup -->
+  <div class="popup" *ngIf="isPopupOpen">
+    <h3>Add New Task</h3>
+    <form (ngSubmit)="addTask()">
+      <input 
+        type="text" 
+        placeholder="Task Name" 
+        [(ngModel)]="newTask.name" 
+        name="name" 
+        required 
+      />
+      <input 
+        type="date" 
+        [(ngModel)]="newTask.dueDate" 
+        name="dueDate" 
+        required 
+      />
+      <div class="popbutton">
+        <button type="submit">Save Task</button>
+        <button type="button" (click)="closePopup()">Cancel</button>
+      </div>
+      
+    </form>
+  </div>
+  
