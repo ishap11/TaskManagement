@@ -9,6 +9,7 @@ export class DashboardService {
     { name: 'Implement user authentication', dueDate: '2023-05-15', progress: 75, status: 'in-progress' },
     { name: 'Design landing page', dueDate: '2023-05-20', progress: 30, status: 'in-progress' },
     { name: 'Set up CI/CD pipeline', dueDate: '2023-05-25', progress: 0, status: 'not-started' },
+    { name: 'Web Development', dueDate: '2024-08-22', progress: 50, status: 'in-progress' },
   ];
 
   getTasks(): Task[] {
