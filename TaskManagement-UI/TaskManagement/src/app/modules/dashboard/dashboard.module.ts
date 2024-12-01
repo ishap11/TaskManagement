@@ -5,15 +5,6 @@ import { RecentTaskGridComponent } from './component/recent-task-grid/recent-tas
 import { FinalDashboardComponent } from './component/final-dashboard/final-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BlankLayoutComponent } from '../../blank-layout/blank-layout.component';
-
-
-const Dashboardroutes:Routes=[{
-  path:'',
-  component:BlankLayoutComponent,
-  children:[{
-    path:'', component:CardComponent
-  }]
-}]
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -26,6 +17,15 @@ import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { HelperModule } from '../../helper/helper.module';
 
+const Dashboardroutes:Routes=[{
+  path:'',
+  component:BlankLayoutComponent,
+  children:[{
+    path:'', component:FinalDashboardComponent,
+  }]
+}]
+
+
 @NgModule({
   declarations: [
     CardComponent,
@@ -36,7 +36,7 @@ import { HelperModule } from '../../helper/helper.module';
     CommonModule,
     RouterModule.forChild(Dashboardroutes),MatCardModule,
     MatIconModule,
-    MatButtonModule,
+    MatButtonModule, 
     MatToolbarModule,
     MatGridListModule,
     MatProgressBarModule,
@@ -47,8 +47,8 @@ import { HelperModule } from '../../helper/helper.module';
     // BlankLayoutComponent
   ],
   exports : [
-    CardComponent,
-    RecentTaskGridComponent
+    RecentTaskGridComponent,
+    FinalDashboardComponent
   ]
 })
 export class DashboardModule { }
