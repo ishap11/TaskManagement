@@ -34,7 +34,8 @@ import { ProjectModule } from './modules/project/project/project.module';
     MatIconModule,
     MatExpansionModule,
     DashboardModule,
-    ProjectModule
+    ProjectModule,
+    
     
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

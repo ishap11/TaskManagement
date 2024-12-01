@@ -6,7 +6,10 @@ import { CompleteProjectComponent } from './component/complete-project/complete-
 import { AllProjectComponent } from './component/all-project/all-project.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BlankLayoutComponent } from '../../../blank-layout/blank-layout.component';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 const Projectroutes:Routes=[{
   path:'all-project',
@@ -27,6 +30,10 @@ const Projectroutes:Routes=[{
   imports: [
     CommonModule,
     RouterModule.forChild(Projectroutes),
+    MatButtonToggleModule,
+    MatCardModule,
+    MatIconModule,
+    MatProgressBarModule,
   ],
   exports : [
     AllProjectComponent
