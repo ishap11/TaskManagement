@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './all-project.component.scss'
 })
 export class AllProjectComponent {
-
+  project = {
+    name: 'TaskMaster App',
+    tasks: 24,
+    members: 5,
+    progress: 70,
+  };
 }
