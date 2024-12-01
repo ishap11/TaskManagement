@@ -22,7 +22,7 @@ const Dashboardroutes:Routes=[{
   component:BlankLayoutComponent,
   children:[{
     path:'', component:FinalDashboardComponent,
-  }]
+  }] 
 }]
 
 
@@ -34,7 +34,8 @@ const Dashboardroutes:Routes=[{
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(Dashboardroutes),MatCardModule,
+    RouterModule.forChild(Dashboardroutes),
+    MatCardModule,
     MatIconModule,
     MatButtonModule, 
     MatToolbarModule,

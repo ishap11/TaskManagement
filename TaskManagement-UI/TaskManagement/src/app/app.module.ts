@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProjectModule } from './modules/project/project/project.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatIconModule,
     MatExpansionModule,
     DashboardModule,
+    ProjectModule
     
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

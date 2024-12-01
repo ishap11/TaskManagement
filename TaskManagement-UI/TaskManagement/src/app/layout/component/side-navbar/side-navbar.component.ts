@@ -13,7 +13,7 @@ export class SideNavbarComponent {
   isCollapsed = false;
   navItems = [
     { label: 'Dashboard', link: '/', icon: 'fas fa-home' },
-    { label: 'Users', link: '/users', icon: 'fas fa-users' },
+    { label: 'Project', link: '/project/all-project', icon: 'fas fa-users' },
     { label: 'Settings', link: '/settings', icon: 'fas fa-cog' },
   ];
 
