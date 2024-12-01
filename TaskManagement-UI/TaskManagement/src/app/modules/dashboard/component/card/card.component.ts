@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
   cardItems = [
-    { title: 'Shiba Inu', subtitle: 'Small' },
-    { title: 'Shiba Inu', subtitle: 'Medium' },
-    { title: 'Shiba Inu', subtitle: 'Large' },
-    { title: 'Shiba Inu', subtitle: 'Extra Large' }
+    { title: 'Total Tasks', value: 24, icon: 'circle' },
+    { title: 'Completed', value: 16, icon: 'check_circle' },
+    { title: 'In Progress', value: 8, icon: 'timelapse' },
+    { title: 'Overdue', value: 2, icon: 'notifications' }
   ];
 }

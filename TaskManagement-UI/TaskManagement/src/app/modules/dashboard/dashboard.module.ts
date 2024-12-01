@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { HelperModule } from '../../helper/helper.module';
+import { DashboardService } from '../../services/dashboard.service';
 
 const Dashboardroutes:Routes=[{
   path:'',
@@ -44,12 +45,15 @@ const Dashboardroutes:Routes=[{
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
+    FormsModule
 
     // BlankLayoutComponent
   ],
   exports : [
     RecentTaskGridComponent,
     FinalDashboardComponent
-  ]
+  ],
+  providers:[DashboardService],
+
 })
 export class DashboardModule { }
