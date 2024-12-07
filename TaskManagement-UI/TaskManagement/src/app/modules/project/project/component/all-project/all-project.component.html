@@ -3,33 +3,37 @@
     <h2 class="card-title">Project Overview</h2>
     <h5 class="card-text">Manage and track all your projects</h5>
     <div class="search-actions">
-      <input type="text" placeholder="Search Projects..." />
-      <button class="primary" type="button">Search</button>
+      <input type="text" placeholder="Search Projects..." [(ngModel)]="searchText" class="search-input"
+        (ngModelChange)="applySearchFilter()" />
+
+
+      <!-- Add Task Button -->
+      <button class="add-project-button" (click)="openTaskPopup()"> + Project</button>
+    </div>
+    <div>
+      <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style"
+        (change)="filterProjects($event.value)">
+        <mat-button-toggle value="all">All Projects</mat-button-toggle>
+        <mat-button-toggle value="active">Active</mat-button-toggle>
+        <mat-button-toggle value="completed">Completed</mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
   </div>
 
-  <div>
-    <mat-button-toggle-group
-      appearance="legacy"
-      name="fontStyle"
-      aria-label="Font Style"
-      (change)="filterProjects($event.value)"
-    >
-      <mat-button-toggle value="all">All Projects</mat-button-toggle>
-      <mat-button-toggle value="active">Active</mat-button-toggle>
-      <mat-button-toggle value="completed">Completed</mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
+ 
 
   <div class="project-grid">
     <mat-card class="project-card" *ngFor="let project of filteredProjects">
       <div class="project-header">
         <h3>{{ project.name }}</h3>
-        <button mat-icon-button>
+        <button class="dots-details"mat-icon-button>
           <mat-icon>more_vert</mat-icon>
         </button>
       </div>
-      <mat-progress-bar mode="determinate" [value]="project.progress"></mat-progress-bar>
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="project.progress"></div>
+      </div>
+
       <div class="project-stats">
         <div class="stat-item">
           <mat-icon>description</mat-icon>
@@ -41,8 +45,30 @@
         </div>
       </div>
       <div class="project-actions">
-        <button mat-raised-button color="primary">View Details</button>
+        <button  (click)="viewDetails()" class="dots-details" mat-raised-button >View Details</button>
       </div>
     </mat-card>
   </div>
+</div>
+
+<div *ngIf="isPopupOpen" class="popup">
+  <h3>Add New Project</h3>
+  <form (ngSubmit)="addProject()">
+    <label for="name">Project Name</label>
+    <input type="text" id="name" [(ngModel)]="newProject.name" name="name" required />
+    
+    <label for="tasks">Number of Tasks</label>
+    <input type="number" id="tasks" [(ngModel)]="newProject.tasks" name="tasks" required />
+
+    <label for="members">Number of Members</label>
+    <input type="number" id="members" [(ngModel)]="newProject.members" name="members" required />
+    
+    <label for="progress">Progress</label>
+    <input type="number" id="progress" [(ngModel)]="newProject.progress" name="progress" min="0" max="100" required />
+    
+    <div class="popbutton">
+      <button type="submit">Add Project</button>
+      <button type="button" (click)="closePopup()">Cancel</button>
+    </div>
+  </form>
 </div>
