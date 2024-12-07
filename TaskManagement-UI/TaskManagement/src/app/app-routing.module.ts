@@ -4,9 +4,8 @@ import { BlankLayoutComponent } from './blank-layout/blank-layout.component';
 
 
 const routes: Routes = [
- {
+ { 
   path:'',
-  // component:BlankLayoutComponent, 
   loadChildren:()=>import('././modules/dashboard/dashboard.module').then((m)=>m.DashboardModule),
 },
 {

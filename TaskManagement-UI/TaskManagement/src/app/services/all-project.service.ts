@@ -18,9 +18,13 @@ export class AllProjectService {
   getProjects(): Project[] {
     return this.projects;
   }
+  
+  // getProjectById(id: number): Project | undefined {
+  //   return this.projects.find((project) => project.id === id);
+  // }
 
-  getProjectById(id: number): Project | undefined {
-    return this.projects.find((project) => project.id === id);
+  addProjects(project: Project): void {
+    this.projects.push(project);
   }
 
 }

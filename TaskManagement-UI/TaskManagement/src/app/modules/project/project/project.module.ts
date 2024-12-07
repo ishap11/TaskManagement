@@ -10,14 +10,24 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
-const Projectroutes:Routes=[{
-  path:'all-project',
-  component:BlankLayoutComponent,
-  children:[{
-    path:'', component:AllProjectComponent,
-  }] 
-}]
+import { FormsModule } from '@angular/forms';
+import { ViewProjectDetailsComponent } from './component/view-project-details/view-project-details.component';
+const Projectroutes:Routes=[
+  {
+    path:'all-project',
+    component:BlankLayoutComponent,
+    children:[{
+      path:'', component:AllProjectComponent,
+    }] 
+  },
+  {
+    path:'view-project-details',
+    component:BlankLayoutComponent,
+    children: [{
+      path:'', component:ViewProjectDetailsComponent,
+    }]
+  }
+]
 
 
 @NgModule({
@@ -25,7 +35,8 @@ const Projectroutes:Routes=[{
     ProjectComponent,
     ActiveProjectComponent,
     CompleteProjectComponent,
-    AllProjectComponent
+    AllProjectComponent,
+    ViewProjectDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +45,7 @@ const Projectroutes:Routes=[{
     MatCardModule,
     MatIconModule,
     MatProgressBarModule,
+    FormsModule
   ],
   exports : [
     AllProjectComponent
