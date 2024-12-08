@@ -1,25 +1,37 @@
-<mat-card class="profile-card">
-    <div class="profile-header">
-      <h2 class="profile-title">Profile Settings</h2>
-      <h5 class="profile-text">Manage your personal information and application settings</h5>
-    </div>
-  
-    <div class="profile-form">
-      <form (ngSubmit)="saveProfile()">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" [(ngModel)]="profile.fullName" name="name" required />
-  
-        <label for="email">Email</label>
-        <input type="email" id="email" [(ngModel)]="profile.email" name="email" required />
-  
-        <label for="role">Role</label>
-        <input type="text" id="role" [(ngModel)]="profile.role" name="role" required />
-  
-        <label for="password">Change Password</label>
-        <input type="password" id="password" [(ngModel)]="profile.password" name="password" required />
-  
-        <button type="submit">Save Changes</button>
-      </form>
-    </div>
-  </mat-card>
-  
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Profile Settings</h2>
+    <h5 class="card-text">Manage your personal information and account settings</h5>
+  </div>
+
+  <!-- Avatar Section -->
+  <div class="avatar-section">
+    <img
+      [src]="profile.avatar || 'assets/default-avatar.png'"
+      alt="User Avatar"
+      class="avatar"
+    />
+    <button mat-button (click)="changeAvatar()">Change Avatar</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab *ngFor="let tab of settingsTabs">
+      <mat-card>
+        <form>
+          <div *ngFor="let field of tab.fields" class="form-group">
+            <label>{{ field.label }}</label>
+            <ng-container [ngSwitch]="field.type">
+              <input *ngSwitchCase="'text'" type="text" [(ngModel)]="formData[field.key]" [name]="field.key" />
+              <input *ngSwitchCase="'email'" type="email" [(ngModel)]="formData[field.key]" [name]="field.key" />
+              <input *ngSwitchCase="'number'" type="number" [(ngModel)]="formData[field.key]" [name]="field.key" />
+              <input *ngSwitchCase="'password'" type="password" [(ngModel)]="formData[field.key]" [name]="field.key" />
+            </ng-container>
+          </div>
+          <div class="savebutton">
+            <button mat-button type="submit" (click)="saveProfile()">Save Changes</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div>

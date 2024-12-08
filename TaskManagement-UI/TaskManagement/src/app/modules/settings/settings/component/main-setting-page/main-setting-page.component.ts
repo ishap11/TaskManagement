@@ -1,30 +1,30 @@
 import { Component } from '@angular/core';
-import { AllSettingsServiceService } from '../../../../../services/all-settings-service.service';
-import { ProfileComponent } from '../profile/profile.component';
-import { NotificationsComponent } from '../notifications/notifications.component';
-import { ApperanaceComponent } from '../apperanace/apperanace.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'TaskManagement-main-setting-page',
   templateUrl: './main-setting-page.component.html',
-  styleUrl: './main-setting-page.component.scss'
+  styleUrls: ['./main-setting-page.component.scss']
 })
 export class MainSettingPageComponent {
-  tabs = [
-    { label: 'Profile', component: ProfileComponent },
-    { label: 'Notifications', component: NotificationsComponent },
-    { label: 'Appearance', component: ApperanaceComponent }
+  // Tabs configuration
+  tabs = [{ label: 'Profile', name: 'profile' },
+    { label: 'Notifications', name: 'notifications' },
+    { label: 'Appearance', name: 'appearance' },
+    
+    
   ];
-ProfileComponent: any;
-NotificationsComponent: any;
-ApperanaceComponent: any;
 
-  constructor(private allsettingservice : AllSettingsServiceService) {}
+  // Active tab state
+  activeTab: string = 'profile'; // Default to the Appearance tab
 
-  selectedTab: any = this.tabs[0].component; 
+  constructor(private router: Router) {}
 
-  switchTab(component: any): void {
-    this.selectedTab = component;
+  // Method to handle tab changes
+  onTabChange(event: any): void {
+    const tabIndex = event.index; // Get the index of the selected tab
+    this.activeTab = this.tabs[tabIndex]?.name; // Update the active tab based on the index
+    console.log('Tab index:', tabIndex); // Log the index
+    console.log('Active tab:', this.activeTab); // Confirm the active tab value
   }
-
 }
