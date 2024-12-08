@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Settings</h2>
+      <h5 class="card-text">Manage your account preference and application settings</h5>
+    </div>
+  
+    <div class="diff-tabs">
+      <mat-tab-group>
+        <!-- Tab Navigation -->
+        <mat-tab *ngFor="let tab of tabs" [label]="tab.label" (click)="switchTab(tab.component)">
+          {{ tab.label }}
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  
+    <!-- Dynamic Content Based on Selected Tab -->
+    <div class="settings-content">
+      <div [ngSwitch]="selectedTab">
+        <ng-container *ngSwitchCase="ProfileComponent">
+         <TaskManagement-profile></TaskManagement-profile> 
+        </ng-container>
+        <ng-container *ngSwitchCase="NotificationsComponent">
+          <TaskManagement-notifications></TaskManagement-notifications>
+        </ng-container>
+        <ng-container *ngSwitchCase="ApperanaceComponent">
+          <TaskManagement-apperanace></TaskManagement-apperanace>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,117 @@
+/* General card styling */
+.card {
+  margin: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and description styling */
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Tabs styling */
+.diff-tabs {
+  margin-top: 20px;
+}
+
+mat-tab-group {
+  margin-bottom: 20px;
+}
+
+mat-tab {
+  padding: 15px;
+}
+
+mat-tab-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Form input styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input,
+select,
+mat-slide-toggle {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+mat-slide-toggle:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"] {
+  margin-bottom: 10px;
+}
+
+mat-slide-toggle {
+  margin-top: 10px;
+}
+
+/* Select input styling */
+select {
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Button styling */
+.savebutton {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}

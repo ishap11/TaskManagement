@@ -1,0 +1,25 @@
+<mat-card class="profile-card">
+    <div class="profile-header">
+      <h2 class="profile-title">Profile Settings</h2>
+      <h5 class="profile-text">Manage your personal information and application settings</h5>
+    </div>
+  
+    <div class="profile-form">
+      <form (ngSubmit)="saveProfile()">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" [(ngModel)]="profile.fullName" name="name" required />
+  
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="profile.email" name="email" required />
+  
+        <label for="role">Role</label>
+        <input type="text" id="role" [(ngModel)]="profile.role" name="role" required />
+  
+        <label for="password">Change Password</label>
+        <input type="password" id="password" [(ngModel)]="profile.password" name="password" required />
+  
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </mat-card>
+  

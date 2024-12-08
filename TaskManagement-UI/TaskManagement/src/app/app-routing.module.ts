@@ -11,7 +11,11 @@ const routes: Routes = [
 {
   path: 'project',
   loadChildren: ()=>import('././modules/project/project/project.module').then((m)=>m.ProjectModule),
-}
+},
+{
+  path: 'settings',
+  loadChildren: ()=>import('././modules/settings/settings/settings.module').then((m)=>m.SettingsModule),
+},
 ];
 
 @NgModule({

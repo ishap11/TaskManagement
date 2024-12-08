@@ -14,7 +14,7 @@ export class SideNavbarComponent {
   navItems = [
     { label: 'Dashboard', link: '/', icon: 'fas fa-home' },
     { label: 'Project', link: '/project/all-project', icon: 'fas fa-users' },
-    { label: 'Settings', link: '/settings', icon: 'fas fa-cog' },
+    { label: 'Settings', link: '/settings/main-setting', icon: 'fas fa-cog' },
   ];
 
   toggleSidebar() {
